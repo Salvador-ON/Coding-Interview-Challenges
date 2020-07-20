@@ -5,7 +5,7 @@
 # @return {Integer}
 def single_number(nums)
   new_hash = Hash.new
-  nums.each_with_index do |x|
+  nums.each do |x|
     new_hash[x] = new_hash[x] += 1 if new_hash[x]
     new_hash[x] = 1 if !new_hash[x]
   end
