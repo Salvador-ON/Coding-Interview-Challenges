@@ -1,0 +1,31 @@
+# Runtime: 100 ms
+# Memory Usage: 10.9 MB,
+
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode[]} lists
+# @return {ListNode}
+def merge_k_lists(lists)
+  @result_array = []
+  
+  def showLinks(node)
+    @result_array.push(node.val)
+    linked_node = node.next
+    while linked_node
+      @result_array.push(linked_node.val)
+      linked_node = linked_node.next
+    end
+  end
+  
+  lists.each do |x|
+    showLinks(x) if x
+  end
+  
+  @result_array.sort
+end
