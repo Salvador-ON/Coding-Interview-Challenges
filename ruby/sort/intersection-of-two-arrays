@@ -1,0 +1,21 @@
+# Runtime: 44 ms
+# Memory Usage: 9.9 MB
+
+# @param {Integer[]} nums1
+# @param {Integer[]} nums2
+# @return {Integer[]}
+def intersection(nums1, nums2)
+  intersect = []
+  if nums1.size > nums2.size
+    nums2.each do |x|
+      intersect.push(x) if nums1.include?(x)
+    end
+  else
+    nums1.each do |x|
+      intersect.push(x) if nums2.include?(x)
+    end
+  end
+  
+  intersect_uniq = intersect.uniq
+  intersect_uniq
+end
