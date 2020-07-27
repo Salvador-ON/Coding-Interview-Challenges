@@ -1,3 +1,40 @@
+# Solution 1:
+# Runtime: 40 ms
+# Memory Usage: 10.1 MB
+
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @return {ListNode}
+def reverse_list(head)
+  return [] if !head
+  
+  @first_node = head
+  @last_node = nil
+
+  def reverse_link(node)
+    reverse_link(node.next) if node.next
+    node.next.next = node if node.next
+    if node.next && @last_node.nil?
+      @last_node = node.next
+    elsif !node.next && @last_node.nil?
+      @last_node = node
+    end
+  end
+  
+  reverse_link(head)
+  @first_node.next = nil
+
+  @last_node
+end
+
+# Solution 2:
 # Runtime: 84 ms
 # Memory Usage: 10.5 MB
 
